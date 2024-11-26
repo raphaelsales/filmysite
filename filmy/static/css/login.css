@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('../fonts/Rubik.ttf') format('truetype');
+}
+
+input{
+    padding: 10px;
+}
+
+.form-group{
+    font-family: 'Rubik', sans-serif;
+}

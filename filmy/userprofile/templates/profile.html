@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link type="text/css" rel="stylesheet" href="{% static '/css/profile.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Mako&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <nav class="cabecalho__menu">
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+<div class="container">
+    <h1>Welcome, {{ user.username }}</h1>
+    
+    {% if not movies %}
+    <p>Watchlist is empty</p>
+    
+    {% else %}
+    Watchlist:
+    {% for movie in movies %}
+    <div class="movie">
+        <div class="movie_image">
+            <img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="movie_poster" draggable="false">
+        </div>
+        <div class="movie_details">
+            <h2>{{ movie.title }}</h2>
+            <h4>Release date: </h4>
+            <p>{{ movie.overview }}</p>
+            <form action="{% url 'RemoveFromWatchlist' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="filme_id" value="{{ movie.id }}">
+                <input type="submit" class="btn" value="Remove From Watchlist" name="Remove">
+            </form>
+            
+            <!-- Add other movie details as needed -->
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}</div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let movie of movies">
+      <ion-thumbnail slot="start">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Movie Poster">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ movie.title }}</h2>
+        <p>Year: {{ movie.release_date | date:'yyyy' }}</p>
+        <p>{{ movie.overview }}</p>
+      </ion-label>
+      <ion-button fill="outline" color="primary" slot="end" (click)="addToWatchlist(movie.id)">
+        Add to Watchlist
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

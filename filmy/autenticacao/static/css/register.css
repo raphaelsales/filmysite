@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('../fonts/Rubik.ttf') format('truetype');
+}
+
+
+body{
+    background-color: rgb(3, 1, 19);
+    color: rgb(255, 255, 255);
+    font-family: 'Rubik', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+input{
+    padding: 10px;
+    margin: 10px;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-group{
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+button{
+    padding: 10px;
+    margin: 10px;
+    border-color: rgb(255, 255, 255);
+    border-width: 0px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(3, 1, 19);
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+}
+
+
+button:hover{
+    background-color: rgb(44, 44, 105);
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
+.register-btn:hover{
+    background-color: rgb(44, 44, 105);
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+a, a:visited, a:active{
+    text-decoration: none;
+}
+

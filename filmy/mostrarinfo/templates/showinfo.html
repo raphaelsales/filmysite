@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Filmy</title>
+    <link type="text/css" rel="stylesheet" href="{% static '/css/filmeinfo.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Mako&display=swap" rel="stylesheet">
+</head>
+<header class="cabecalho">
+    <nav class="cabecalho__menu">
+        <a href="/">Home</a>
+        {% if EntrarOuPerfil == "Entrar" %}
+        <a href="/login">{{EntrarOuPerfil}}</a>
+        {% else %}
+        <a href="/profile">Profile</a>
+        {% endif %}
+    </nav>
+</header>
+
+<body>
+    <div class="container">
+        <img src="https://image.tmdb.org/t/p/original/{{ filme.poster_path }}" class="background"> 
+        <div class="info">
+            <div class="info__filme__poster">
+                <img src="https://image.tmdb.org/t/p/original/{{ filme.poster_path }}" width="300px" class="poster">
+            </div>
+            <div class="info__filme__info">
+
+            </div>
+
+            <div class="info__titulo">
+                <h1>{{ filme_id }}</h1>
+                <h1>{{ filme.title }}</h1>
+                <p> Release date: {{ filme.release_date }}</p>
+                <p> Description: {{ filme.overview }}</p>
+                <form action="#" method="get">
+                    <input type="submit" class="btn" value="Add To Watchlist" name="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
